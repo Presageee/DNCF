@@ -22,7 +22,7 @@ public class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
 
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
-        static final EventExecutorGroup group = new DefaultEventExecutorGroup(Runtime.getRuntime().availableProcessors() + 1);
+        final EventExecutorGroup group = new DefaultEventExecutorGroup(Runtime.getRuntime().availableProcessors() + 1);
 
         socketChannel.pipeline().addLast(new CommonEncoder());
         socketChannel.pipeline().addLast(new CommonDecoder());
